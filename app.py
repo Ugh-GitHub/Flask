@@ -25,12 +25,14 @@ def pets_route():
 
     elif request.method == 'POST':
         try:
-            req = request.get_json()
+            req = request.json
             data = [req['name'], req['breed'], req['color'], True, req['owner_id']]
             cursor.execute('INSERT INTO "pets" ("name", "breed", "color", "is_checked_in", "owner_id") VALUES(%s, %s, %s, %s, %s)', data)
             conn.commit()
             return "OK"
         except (Exception, psycopg2.Error) as error:
+            req = request.json
+            print(error)
             return 'ERROR!', 500, error
 
 # Route for the Pets table with paramater for pet id
@@ -38,7 +40,7 @@ def pets_route():
 def pet_byId_route(pet_id):
     try:
         if request.method == 'PUT':
-            req = request.get_json()
+            req = request.json
             if req['checkDirection'] == 'OUT':
                 sql = 'UPDATE "pets" SET "is_checked_in" = false WHERE "id" = %s'
             elif req['checkDirection'] == 'IN':
@@ -78,3 +80,6 @@ def owners_route():
         except(Exception, psycopg2.Error) as error:
             print("Error connecting to PostgreSQL database", error)
             return error, 500
+
+if __name__ == '__main__':
+    app.run(debug=True)

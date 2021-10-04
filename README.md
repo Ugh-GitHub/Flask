@@ -44,6 +44,12 @@ When you are done, complete the assignment on the portal with your GitHub repo.
 
 # Notes
 1. Make sure to run in venv 
-  venv/bin/activate
+. venv/bin/activate
 2. Close venv with:
   deactivate
+3. Development mode helps
+set FLASK_ENV=development
+4. run flask run
+flask run
+5. Testing in postman with raw, JSON selected from righthand dropdown. Example:
+{"name":"John", "breed":"Mutt", "color":"Brown", "owner_id":1}
