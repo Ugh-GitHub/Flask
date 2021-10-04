@@ -42,3 +42,6 @@ Create a GitHub repository to share your basic API & database example. Make sure
 When you are done, complete the assignment on the portal with your GitHub repo. 
 
 
+# Notes
+1. Make sure to run in venv
+2. 
