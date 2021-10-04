@@ -43,5 +43,7 @@ When you are done, complete the assignment on the portal with your GitHub repo.
 
 
 # Notes
-1. Make sure to run in venv
-2. 
+1. Make sure to run in venv 
+  venv/bin/activate
+2. Close venv with:
+  deactivate
